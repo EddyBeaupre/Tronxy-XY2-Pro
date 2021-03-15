@@ -16,19 +16,32 @@ Well, almost, first, we will back up your current firmware, just in case you reg
 We have two things we need to backup in case we ever want to go back to the stock firmware. The current printer settings and the actual firmware. Let's start by backing up the settings.
 
 ## Settings Backup
-Download this [gcode script](https://raw.githubusercontent.com/EddyBeaupre/Tronxy-XY2-Pro/main/gcode/savesettings.gcode), save it to an SD card, then print it. Wait at least 30 seconds then turn off your printer. You should now have a file call **currentconfig.gcode** on your SD with all your printer's settings.
+1. Download this [gcode script](https://raw.githubusercontent.com/EddyBeaupre/Tronxy-XY2-Pro/main/gcode/savesettings.gcode) and save it to an SD card
+2. Print this script and wait at least 30 seconds.
+3. Turn off your printer. You should now have a file call **currentconfig.gcode** on your SD with all your printer's settings.
 
 ## Firmware backup
-Confirm your board version is CXY-V6-191017. You will need to open the bottom pannel under the printer and take a look at your motherboard. It should look like this and the version written on the board must match.
+1. Confirm your board version is CXY-V6-191017. You will need to open the bottom pannel under the printer and take a look at your motherboard. It should look like this and the version written on the board must match.
 
 ![CXY-V6-191017 Board](https://raw.githubusercontent.com/EddyBeaupre/Tronxy-XY2-Pro/main/images/tronxy%20CXY-V6-191017.png)
 
-Once you've confirmed this, remove the **BOOT** jumper and move the **5V** jumper to the **USB*** position, then connect your printer to your computer with an USB cable, a new comm port should appear in the peripheral manager.
-
-Download the  [STM32 Flash loader demonstrator](https://www.st.com/en/development-tools/flasher-stm32.html), you will need to create an account, but they are nice and if you ask nicely they will even send your engineering sample of some of their chips. Once it's done, unzip it, install the flash loader demo and start the Demonstrator GUI.
-
-Select the comm port of the Tronxy printer, leave all other fields at their default value (115200 baud, 8 bit, even parity, echo disabled, timeout 10) and press **Next**, you should now see a status page saying the target is readeable, if not, check your jumpers and comm ports and start over. Press **Next** again which will show you another status page with the microcontroller version and memory map status, press **Next** again. Now select the **Upload from device** tickbox, then press the  **...** button next to the **Upload to file**, a dialog box will open where you can select where to save your firmware, give it a name and make sure the file type is **Bin file (.bin)** then click **Open**, you will probably see a warning saying that the file doesn't exist ans asking if you want to create the faie (which is normal), answer **Yes** (You may see this warning twice, it's normal, just answer **Yes** again). You will now see a memory map selection screen, just make sure that **Select all** is checked at the bottom left then click **Ok**. Once back to the main screen, click **Next** and wait for the firmware upload to complete, which will be confirmed by the progress bar turning green and the message **Upload operation completed successfully**. You can now click **Close** and exit the Demonstrator GUI.
-
-Unplug the USB cable, reinstall the **BOOT** jumper and switch back the other jumper from the **USB** to **5V** position. You can now screw the bottom cover back. We should not have to go inside again unless we screw things up.
+2. Remove the **BOOT** jumper and move the **5V** jumper to the **USB*** position.
+3. Connect your printer to your computer with an USB cable, a new comm port should appear in the peripheral manager.
+4. Download the  [STM32 Flash loader demonstrator](https://www.st.com/en/development-tools/flasher-stm32.html), you will need to create an account, but they are nice and if you ask nicely they will even send your engineering sample of some of their chips. Once it's done, unzip it, install the flash loader demo.
+5. Start the Demonstrator GUI.
+6. In the first screen, select the comm port of the Tronxy printer, leave all other fields at their default value (115200 baud, 8 bit, even parity, echo disabled, timeout 10) and press **Next**
+7. You should now see a status page saying the target is readeable, if not, check your jumpers and comm ports and start over. Press **Next**.
+8. You should now see another status page with the microcontroller version and memory map status, press **Next** again.
+9. Select the **Upload from device** tickbox, then press the  **...** button next to the **Upload to file**
+10. A dialog box will open where you can select where to save your firmware, give it a name and make sure the file type is **Bin file (\*.bin)** then click **Open**
+11. You will probably see a warning saying that the file doesn't exist ans asking if you want to create the faie (which is normal), answer **Yes** (You may see this warning twice, it's normal, just answer **Yes** again).
+12. The memory map selection screen will appear, just make sure that **Select all** is checked at the bottom left then click **Ok**.
+13. Once back to the main screen, click **Next** and wait for the firmware upload to complete, which will be confirmed by the progress bar turning green and the message **Upload operation completed successfully**.
+14. Click **Close** and exit the Demonstrator GUI.
+15. **Unplug the USB cable**.
+16. Reinstall the **BOOT** jumper and switch back the other jumper from the **USB** to **5V** position.
+17. You can now screw the bottom cover back. We should not have to go inside again unless we screw things up.
 
 # Compile Marlin
+
+
