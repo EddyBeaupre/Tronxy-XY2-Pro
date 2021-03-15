@@ -1,4 +1,8 @@
+# Warning
+Use this walkthru at your own risk. No waranty whatsoever that this will work for you.
+
 # Pre-requisitions
+- This is only for the Tronxy XY-2 Pro, non-titan.
 - A full pot of coffee (or 10 full pots).
 - A good caliper.
 - Visual studio code with PlatformIO.
@@ -82,4 +86,13 @@ chitu_f103     SUCCESS   00:02:11.055
 14. Copy **update.cbd** and the **assets** folder to the root of an SD card.
 15. Take a deep breath. Maybe another coffee.
 16. Turn off your printer, insert the SD card, then turn it back on. You should hear a series of beeps and a message on screen with the status of the update. Don't touch anything and let it do it's magic.
-17. Congratulation, you're now running Marlin (or your printer is bricked and you need to upload the original firmware back to the printer with the **STM32 Flash loader demonstrator**).
+17. Congratulation, you're now running Marlin and you can now adjust your Z-Offset (or your printer is bricked and you need to restore the original stock firmware and start over from scratch).
+
+# Restore stock firmware
+**TODO**
+
+# Adjust Z-Offset.
+**TODO**
+
+# Adjust E-Steps.
+**TODO**
