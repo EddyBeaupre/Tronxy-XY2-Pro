@@ -2,8 +2,11 @@
 - A full pot of coffee (or 10 full pots).
 - A good caliper.
 - Visual studio code with PlatformIO.
+- A Laptop or Desktop near your printer.
 - At least one 1Kg roll of PLA or wathever material you prefer that you don't mind throwing in the garbage.
 - 24V/50W Heater rod, chances are they installed a cheap 12V/50W Heater rod in your machine and it's going to burn itself after a few prints.
+- Check every mechanical fastener, make sure all the screw are thight, no slack with the rollers, etc...
+- Check every electrical's connections, Everything with a screw or connector should be secure properly, no loose connection. The AC female plug on mine gave up after about 6 month probably because i didn't check when i got my printer.
 
 # First Steps
 Try the stock firmware, if it work for you and you can manage to set it up properly and have constant results, stick with that, don't bother with this walkthru. I got tired of always having to adjust/tweak the printer after about 6 month of ownership. Sometime it was producing the best print i've ever seen, other time it wasn't even able to lay a first layer consistently.
@@ -29,10 +32,10 @@ We have two things we need to backup in case we ever want to go back to the stoc
 3. Connect your printer to your computer with an USB cable, a new comm port should appear in the peripheral manager.
 4. Download the  [STM32 Flash loader demonstrator](https://www.st.com/en/development-tools/flasher-stm32.html), you will need to create an account, but they are nice and if you ask nicely they will even send your engineering sample of some of their chips. Once it's done, unzip it, install the flash loader demo.
 5. Start the Demonstrator GUI.
-6. In the first screen, select the comm port of the Tronxy printer, leave all other fields at their default value (115200 baud, 8 bit, even parity, echo disabled, timeout 10) and press **Next**
+6. In the first screen, select the comm port of the Tronxy printer, leave all other fields at their default value (115200 baud, 8 bit, even parity, echo disabled, timeout 10) and press **Next**.
 7. You should now see a status page saying the target is readeable, if not, check your jumpers and comm ports and start over. Press **Next**.
 8. You should now see another status page with the microcontroller version and memory map status, press **Next** again.
-9. Select the **Upload from device** tickbox, then press the  **...** button next to the **Upload to file**
+9. Select the **Upload from device** tickbox, then press the  **...** button next to the **Upload to file**.
 10. A dialog box will open where you can select where to save your firmware, give it a name and make sure the file type is **Bin file (\*.bin)** then click **Open**
 11. You will probably see a warning saying that the file doesn't exist ans asking if you want to create the faie (which is normal), answer **Yes** (You may see this warning twice, it's normal, just answer **Yes** again).
 12. The memory map selection screen will appear, just make sure that **Select all** is checked at the bottom left then click **Ok**.
@@ -40,8 +43,15 @@ We have two things we need to backup in case we ever want to go back to the stoc
 14. Click **Close** and exit the Demonstrator GUI.
 15. **Unplug the USB cable**.
 16. Reinstall the **BOOT** jumper and switch back the other jumper from the **USB** to **5V** position.
-17. You can now screw the bottom cover back. We should not have to go inside again unless we screw things up.
+17. You can now screw the bottom cover back. We should not have to go inside again unless we screw things up. Make sure you don't squeeze the flat cables, there's a cutoff that allow the LCD cable to go thru the case without issue, but for the print head/XY axis, there is not. I've installed two washer between the pannel and the printer to allow some spacing for the cable. It is not mandatory but if you thighten the pannel too tightly, you may damage the flat cable.
+
+If you want a more visual description of all the steps, check [Jeff's 3D corner video](https://www.youtube.com/watch?v=vL-JXBVUNRg) where he goes thru the whole process.
 
 # Compile Marlin
+At this point, the first thing to do is to pour yourself a nice warm cup of coffee and take a break while you consider if you still want to go thru the process or stick with the stock firmware. If you're not sure, take another coffee and make up your mind.
 
+1. [Install Visual Studio Code](https://code.visualstudio.com/download).
+2. [Install PlatformIO](https://platformio.org/install/ide?install=vscode) while taking another coffee, it take a while.
+3. [Clone the rhapsodyv/Marlin](https://github.com/rhapsodyv/Marlin) repository.
+4. 
 
