@@ -32,7 +32,7 @@ We have two things we need to backup in case we ever want to go back to the stoc
 
 ![CXY-V6-191017 Board](https://raw.githubusercontent.com/EddyBeaupre/Tronxy-XY2-Pro/main/images/tronxy%20CXY-V6-191017.png)
 
-2. Remove the **BOOT** jumper and move the **5V** jumper to the **USB*** position.
+2. Remove the **BOOT** jumper and move the **5V** jumper to the **USB** position.
 3. Connect your printer to your computer with an USB cable, a new comm port should appear in the peripheral manager.
 4. Download the  [STM32 Flash loader demonstrator](https://www.st.com/en/development-tools/flasher-stm32.html), you will need to create an account, but they are nice and if you ask nicely they will even send your engineering sample of some of their chips. Once it's done, unzip it, install the flash loader demo.
 5. Start the Demonstrator GUI.
