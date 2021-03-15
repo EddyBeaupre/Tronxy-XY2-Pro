@@ -53,5 +53,25 @@ At this point, the first thing to do is to pour yourself a nice warm cup of coff
 1. [Install Visual Studio Code](https://code.visualstudio.com/download).
 2. [Install PlatformIO](https://platformio.org/install/ide?install=vscode) while taking another coffee, it take a while.
 3. [Clone the rhapsodyv/Marlin](https://github.com/rhapsodyv/Marlin) repository.
-4. 
+4. Start Visual Studio Code and open **PlatformIO Home** (the little alien head in the left side taskbar).
+5. Click on **Open Project** and select the directory where you cloned **rhapsodyv/Marlin**.
+6. Let **PlatformIO** rebuild the IntelliSence Indexes while you're finishing your pot of coffee and start another one. It take a while and **PlatformIO** will be completly unresponsive and behave weirdly until this is done.
+7. Open the file **platformio.ini** and change **default_envs** from **chitu_v5_gpio_init** to **chitu_f103**.
+8. in the **Marlin** subdirectory open **Configuration.h**.
+9. Scroll down and at or around line **44** uncomment **#define XY2_V6_255_NO_TITAN_TMC 1**.
+10. Scroll down and at or around line **60** uncomment **#define TFT_LVGL_UI**.
+11. In the **PlatformIO** side menu expand **Project Tasks** then **Default** then click **Build All**.
+12. If everything goes well, after a few minutes you should see the following in the terminal window:
 
+    Checking size .pio\build\chitu_f103\firmware.elf
+    Building .pio\build\chitu_f103\firmware.bin
+    Advanced Memory Usage is available via "PlatformIO Home > Project Inspect"
+    RAM:   [========= ]  87.2% (used 52760 bytes from 60536 bytes)
+    encrypt([".pio\build\chitu_f103\firmware.bin"], [".pio\build\chitu_f103\firmware.elf"])
+    Flash: [=======   ]  70.2% (used 337220 bytes from 480288 bytes)
+    Block Count is  166
+    ================================================= [SUCCESS] Took 131.05 seconds =================================================
+    Environment    Status    Duration
+    -------------  --------  ------------
+    chitu_f103     SUCCESS   00:02:11.055
+    ================================================== 1 succeeded in 00:02:11.055 ==================================================
