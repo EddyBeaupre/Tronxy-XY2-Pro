@@ -77,3 +77,9 @@ Environment    Status    Duration
 chitu_f103     SUCCESS   00:02:11.055
 ================================================== 1 succeeded in 00:02:11.055 ==================================================
 ```
+
+13. Open the **.pio\build\chitu_f103\\** folder.
+14. Copy **update.cbd** and the **assets** folder to the root of an SD card.
+15. Take a deep breath. Maybe another coffee.
+16. Turn off your printer, insert the SD card, then turn it back on. You should hear a series of beeps and a message on screen with the status of the update. Don't touch anything and let it do it's magic.
+17. Congratulation, you're now running Marlin (or your printer is bricked and you need to upload the original firmware back to the printer with the **STM32 Flash loader demonstrator**).
