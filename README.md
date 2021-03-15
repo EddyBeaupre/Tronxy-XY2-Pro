@@ -63,15 +63,17 @@ At this point, the first thing to do is to pour yourself a nice warm cup of coff
 11. In the **PlatformIO** side menu expand **Project Tasks** then **Default** then click **Build All**.
 12. If everything goes well, after a few minutes you should see the following in the terminal window:
 
-    Checking size .pio\build\chitu_f103\firmware.elf
-    Building .pio\build\chitu_f103\firmware.bin
-    Advanced Memory Usage is available via "PlatformIO Home > Project Inspect"
-    RAM:   [========= ]  87.2% (used 52760 bytes from 60536 bytes)
-    encrypt([".pio\build\chitu_f103\firmware.bin"], [".pio\build\chitu_f103\firmware.elf"])
-    Flash: [=======   ]  70.2% (used 337220 bytes from 480288 bytes)
-    Block Count is  166
-    ================================================= [SUCCESS] Took 131.05 seconds =================================================
-    Environment    Status    Duration
-    -------------  --------  ------------
-    chitu_f103     SUCCESS   00:02:11.055
-    ================================================== 1 succeeded in 00:02:11.055 ==================================================
+```
+Checking size .pio\build\chitu_f103\firmware.elf
+Building .pio\build\chitu_f103\firmware.bin
+Advanced Memory Usage is available via "PlatformIO Home > Project Inspect"
+RAM:   [========= ]  87.2% (used 52760 bytes from 60536 bytes)
+encrypt([".pio\build\chitu_f103\firmware.bin"], [".pio\build\chitu_f103\firmware.elf"])
+Flash: [=======   ]  70.2% (used 337220 bytes from 480288 bytes)
+Block Count is  166
+================================================= [SUCCESS] Took 131.05 seconds =================================================
+Environment    Status    Duration
+-------------  --------  ------------
+chitu_f103     SUCCESS   00:02:11.055
+================================================== 1 succeeded in 00:02:11.055 ==================================================
+```
