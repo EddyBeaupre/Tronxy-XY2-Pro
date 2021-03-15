@@ -88,7 +88,7 @@ chitu_f103     SUCCESS   00:02:11.055
 16. Turn off your printer, insert the SD card, then turn it back on. You should hear a series of beeps and a message on screen with the status of the update. Don't touch anything and let it do it's magic.
 17. Congratulation, you're now running Marlin and you can now adjust your Z-Offset (or your printer is bricked and you need to restore the original stock firmware and start over from scratch).
 
-If you want a more visual description of all the steps, Jeff's 3D corner made [another video](https://www.youtube.com/watch?v=agOv6DsOz04) where he goes thru the whole process, the procedure is a little different because the video was made a while ago with an older version of PIO but overall the process is the same.
+If you want a more visual description of all the steps, [Jeff's 3D corner](https://www.youtube.com/channel/UCfkuUbJ9yJltc0Qi4IDymNA) made [another video](https://www.youtube.com/watch?v=agOv6DsOz04) where he goes thru the whole process, the procedure is a little different because the video was made a while ago with an older version of PIO but overall the process is the same.
 
 # Restore stock firmware
 **TODO**
