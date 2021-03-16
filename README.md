@@ -132,7 +132,7 @@ If you want a more visual description of all the steps, [Jeff's 3D corner](https
 
 # Adjust E-Steps on Marlin.
 1. Download this [g-code script](https://raw.githubusercontent.com/EddyBeaupre/Tronxy-XY2-Pro/main/gcode/Extrude100mm.gcode).
-2. Default values are ok for about any types of PLA, if you're using another kind of material, edit the G-Code and change theses values:
+2. Default values are ok for about any types of PLA (**60'c** for the bed, **205'c** for the extruder), if you're using another kind of material, edit the G-Code and change theses values. Keep the Extruder a little bit hotter than you would normally extrude because we will extrude alot of filament in a short time.
 
 ```g-code
 M140 S60; set bed temperature
