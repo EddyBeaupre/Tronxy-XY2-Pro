@@ -123,9 +123,10 @@ If you want a more visual description of all the steps, [Jeff's 3D corner](https
 3. Auto Level your printer, touch the **Configuration** icon, **Motion**, **Bed Leveling** and finally **Level Bed**.
 4. Move the print head to the center of the bed (X=**125**, Y=**125**), touch the **Configuration** icon, **Motion**, **Move Axis**, **Move X**/**Move Y** ...
 5. Touch the **Back Arrow** until you go back to the **Motion** menu, then touch **Soft Endstops** and turn them off. **\*\*WARNING\*\*** Until you re-enable the Soft Endstops, you can crash your head on the bed or push an axis too far, so be careful.
-6. Touch **Move X**, and adjust the Z-Axis very slowly until it barely grip on a piece of paper, take note of the position, that is your Z-Axis offset.
-7. Touch the **Back Arrow** until you go back to the **Main Menu**, then touch **Configuration**, **Probe Z Offset** and enter the Z-Axis offset.
-8. Touch the **Back Arrow** until you return to the **Main Configuration** menu then touch the **Right Arrow** to go to page two and touch **Store Settings**.
+6. Touch **Move Z**, and adjust the Z-Axis very slowly until it barely grip on a piece of paper, take note of the position, that is your Z-Axis offset.
+7. Touch the **Back Arrow** until you go back to the **Motion** menu, then touch **Soft Endstops** and turn them on. **\*\*WARNING\*\*** do not forget to do that, you can crash your head on the bed or push an axis too far if disable, so be careful.
+8. Touch the **Back Arrow** until you go back to the **Main Menu**, then touch **Configuration**, **Probe Z Offset** and enter the Z-Axis offset.
+9. Touch the **Back Arrow** until you return to the **Main Configuration** menu then touch the **Right Arrow** to go to page two and touch **Store Settings**.
 
 ### Adjust E-Steps
 1. Download this [g-code script](https://raw.githubusercontent.com/EddyBeaupre/Tronxy-XY2-Pro/main/gcode/Extrude100mm.gcode).
