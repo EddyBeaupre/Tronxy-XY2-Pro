@@ -1,5 +1,5 @@
 # Warning
-Use this walkthru at your own risk. No waranty whatsoever that this will work for you.
+Use this walkthru at your own risk. No waranty whatsoever that this will work for you. This is a work in progress, things may and will change in the futur.
 
 # Pre-requisitions
 - This is only for the Tronxy XY-2 Pro, non-titan.
@@ -67,7 +67,7 @@ At this point, the first thing to do is to pour yourself a nice warm cup of coff
 8. in the **Marlin** subdirectory open **Configuration.h**.
 9. At or around line **44** uncomment **#define XY2_V6_255_NO_TITAN_TMC 1**.
 10. At or around line **62** uncomment **#define TFT_COLOR_UI**.
-11. At or around line **966** increase **#define EXTRUDE_MAXLENGTH** from **200** to **500**.
+11. At or around line **966** increase **#define EXTRUDE_MAXLENGTH** from **200** to **500**, with the bowden tube you will need more than 200mm of fillament to insert or remove the filament. In my case i need **325mm**.
 12. At or around line **1690** uncomment **#define SOFT_ENDSTOPS_MENU_ITEM**.
 13. **\*\*Optional\*\*** At or around line **1178** you can adjust your steps by changing the value of **#define DEFAULT_AXIS_STEPS_PER_UNIT**, or leave it default and adjust later via the printer's UI.
 14. **\*\*Optional\*\*** At or around line **1874** you can adjust the number of point automatic bed leveling will check with **#define GRID_MAX_POINTS_X**, or leave it default.
@@ -146,3 +146,5 @@ M104 S205 T0; set nozzle temperature
 7. Divide your **E Steps/mm** by the percentage you calculated earlier, this will give your new **E Steps/mm**. In this example **186mm/0.93 = 200mm**.
 8. Return to the **Steps/mm** menu, and enter your new **E Steps/mm** value.
 9. Touch the **Back Arrow** until you return to the **Main Configuration** menu then touch the **Right Arrow** to go to page two and touch **Store Settings**.
+
+# Adjust Filament loading/unloading on Marlin.
