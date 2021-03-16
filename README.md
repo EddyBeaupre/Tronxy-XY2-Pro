@@ -1,3 +1,15 @@
+- [Warning](#Warning)
+- [Pre-requisitions](#pre-requisitions)
+- [First Steps](#first-Steps)
+- [All right, time for backup](#all-right-time-for-backup)
+  - [Settings Backup](#settings-backup)
+  - [Firmware backup](#firmware-backup)
+- [Marlin](#marlin)
+  - [Compile Marlin](#compile-marlin)
+  - [Install Marlin](#install-marlin)
+  - [Configure Marlin](#configure-marlin)
+- [Restore stock Tronxy firmware and settings](#restore-stock-tronxy-firmware-and-settings)
+
 # Warning
 Use this walkthru at your own risk. No waranty whatsoever that this will work for you. This is a work in progress, things may and will change in the futur.
 
@@ -28,7 +40,7 @@ We have two things we need to backup in case we ever want to go back to the stoc
 2. Print this script and wait at least 30 seconds.
 3. Turn off your printer. You should now have a file call **currentconfig.gcode** on your SD with all your printer's settings.
 
-## Firmware backup
+## Firmware Backup
 1. Confirm your board version is CXY-V6-191017. You will need to open the bottom pannel under the printer and take a look at your motherboard. It should look like this and the version written on the board must match.
 
 ![CXY-V6-191017 Board](https://raw.githubusercontent.com/EddyBeaupre/Tronxy-XY2-Pro/main/images/tronxy%20CXY-V6-191017.png)
@@ -55,7 +67,9 @@ If you want a more visual description of all the steps, check [Jeff's 3D corner 
 
 Now that you have everything backed up, make 3 copies of them, send one to your grandmother, one to your mother and keep one. That way, you will always be able to recover them if you need. 
 
-# Compile Marlin
+# Marlin
+
+## Compile Marlin
 At this point, the first thing to do is to pour yourself a nice warm cup of coffee and take a break while you consider if you still want to go thru the process or stick with the stock firmware. If you're not sure, take another coffee and make up your mind.
 
 1. [Install Visual Studio Code](https://code.visualstudio.com/download).
@@ -90,15 +104,53 @@ chitu_f103     SUCCESS   00:02:11.055
 ================================================== 1 succeeded in 00:02:11.055 ==================================================
 ```
 
-13. Open the **.pio\build\chitu_f103\\** folder.
-14. Copy **update.cbd** to the root of an SD card.
-15. Take a deep breath. Maybe another coffee.
-16. Turn off your printer, insert the SD card, then turn it back on. You should hear a series of beeps and a message on screen with the status of the update. Don't touch anything and let it do it's magic.
-17. Congratulation, you're now running Marlin and you can now adjust your Z-Offset (or your printer is bricked and you need to restore the original stock firmware and start over from scratch).
+## Install Marlin
+1. Open the **.pio\build\chitu_f103\\** folder.
+2. Copy **update.cbd** to the root of an SD card.
+3. Take a deep breath. Maybe another coffee.
+4. Turn off your printer, insert the SD card, then turn it back on. You should hear a series of beeps and a message on screen with the status of the update. Don't touch anything and let it do it's magic.
+5. Congratulation, you're now running Marlin and you can now adjust your Z-Offset (or your printer is bricked and you need to restore the original stock firmware and start over from scratch).
 
 If you want a more visual description of all the steps, [Jeff's 3D corner](https://www.youtube.com/channel/UCfkuUbJ9yJltc0Qi4IDymNA) made [another video](https://www.youtube.com/watch?v=agOv6DsOz04) where he goes thru the whole process, the procedure is a little different because the video was made a while ago with an older version of PIO but overall the process is the same.
 
-# Restore stock firmware and settings.
+## Configure Marlin
+### Adjust Z-Offset.
+1. Preheat your bed and extruder to the temperature you normally use for your material and go take a coffee or wait at least 10 minutes for everything to settle down.
+2. Home your printer, touch the **Configuration** icon, **Motion** and finally **Auto Home**.
+3. Auto Level your printer, touch the **Configuration** icon, **Motion**, **Bed Leveling** and finally **Level Bed**.
+4. Move the print head to the center of the bed (X=**125**, Y=**125**), touch the **Configuration** icon, **Motion**, **Move Axis**, **Move X**/**Move Y** ...
+5. Touch the **Back Arrow** until you go back to the **Motion** menu, then touch **Soft Endstops** and turn them off. **\*\*WARNING\*\*** Until you re-enable the Soft Endstops, you can crash your head on the bed or push an axis too far, so be careful.
+6. Touch **Move X**, and adjust the Z-Axis very slowly until it barely grip on a piece of paper, take note of the position, that is your Z-Axis offset.
+7. Touch the **Back Arrow** until you go back to the **Main Menu**, then touch **Configuration**, **Probe Z Offset** and enter the Z-Axis offset.
+8. Touch the **Back Arrow** until you return to the **Main Configuration** menu then touch the **Right Arrow** to go to page two and touch **Store Settings**.
+
+### Adjust E-Steps.
+1. Download this [g-code script](https://raw.githubusercontent.com/EddyBeaupre/Tronxy-XY2-Pro/main/gcode/Extrude100mm.gcode).
+2. Default values are ok for about any types of PLA (**60'c** for the bed, **205'c** for the extruder), if you're using another kind of material, edit the G-Code and change theses values. Keep the Extruder a little bit hotter than you would normally extrude because we will extrude alot of filament in a short time.
+
+```g-code
+M140 S60; set bed temperature
+M104 S205 T0; set nozzle temperature
+```
+
+3. With a caliper or a good ruler, mesure and mark 120mm of filament from the filament runout sensor.
+4. Print the g-code script. It will print 100mm of filament.
+5. Mesure what is left between the runout sensor and the mark you made earlier. Let's say 27mm for this example, you now know that you under-extruded **7mm** (**27mm - (120mm - 100mm) = 7mm**) or **93%** (**100mm - 7mm = 93mm**) of what you wanted to extrude.
+6. Touch the **Configuration** icon, **Configuration**, **Advance Configuration**, **Right Arrow** to go to page two and touch **Steps/mm** and take note of your **E Steps/mm** (**186** in the stock configuration).
+7. Divide your **E Steps/mm** by the percentage you calculated earlier, this will give your new **E Steps/mm**. In this example **186mm/0.93 = 200mm**.
+8. Return to the **Steps/mm** menu, and enter your new **E Steps/mm** value.
+9. Touch the **Back Arrow** until you return to the **Main Configuration** menu then touch the **Right Arrow** to go to page two and touch **Store Settings**.
+
+Once again, [Jeff's 3D corner](https://www.youtube.com/channel/UCfkuUbJ9yJltc0Qi4IDymNA) made [another video](https://www.youtube.com/watch?v=4UCAwPmiBb4) where he goes thru the whole process and need more explanations.
+
+### Adjust Filament loading/unloading.
+1. Touch the **Configuration** icon, **Configuration**, **Advance Configuration**, **Right Arrow** to go to page two and touch **Filament**.
+2. Set **Unload mm** to **400** and **Load mm** to **350**.
+3. Touch the **Back Arrow** until you return to the **Main Configuration** menu then touch the **Right Arrow** to go to page two and touch **Store Settings**.
+4. Touch the **Back Arrow** until you return to the **Main Configuration** menu then touch **Change Filament**, and follow the on-screen instructions.
+5. Repeat theses steps, chaning the **Unload mm** / **Load mm** values until you are happy with them.
+
+# Restore stock Tronxy firmware and settings.
 1. Unplug your printer from the AC outlet.
 2. Remove the bottom pannel under the printer.
 3. Remove the **BOOT** jumper and move the **5V** jumper to the **USB** position.
@@ -120,40 +172,3 @@ If you want a more visual description of all the steps, [Jeff's 3D corner](https
 19. Insert the SD card in the printer and print **currentconfig.gcode**, wait until the printer confirm that the printing is done.
 20. Turn the printer off for at least 15 seconds.
 21. Turn the printer back on.
-
-# Adjust Z-Offset on Marlin.
-1. Preheat your bed and extruder to the temperature you normally use for your material and go take a coffee or wait at least 10 minutes for everything to settle down.
-2. Home your printer, touch the **Configuration** icon, **Motion** and finally **Auto Home**.
-3. Auto Level your printer, touch the **Configuration** icon, **Motion**, **Bed Leveling** and finally **Level Bed**.
-4. Move the print head to the center of the bed (X=**125**, Y=**125**), touch the **Configuration** icon, **Motion**, **Move Axis**, **Move X**/**Move Y** ...
-5. Touch the **Back Arrow** until you go back to the **Motion** menu, then touch **Soft Endstops** and turn them off. **\*\*WARNING\*\*** Until you re-enable the Soft Endstops, you can crash your head on the bed or push an axis too far, so be careful.
-6. Touch **Move X**, and adjust the Z-Axis very slowly until it barely grip on a piece of paper, take note of the position, that is your Z-Axis offset.
-7. Touch the **Back Arrow** until you go back to the **Main Menu**, then touch **Configuration**, **Probe Z Offset** and enter the Z-Axis offset.
-8. Touch the **Back Arrow** until you return to the **Main Configuration** menu then touch the **Right Arrow** to go to page two and touch **Store Settings**.
-
-# Adjust E-Steps on Marlin.
-1. Download this [g-code script](https://raw.githubusercontent.com/EddyBeaupre/Tronxy-XY2-Pro/main/gcode/Extrude100mm.gcode).
-2. Default values are ok for about any types of PLA (**60'c** for the bed, **205'c** for the extruder), if you're using another kind of material, edit the G-Code and change theses values. Keep the Extruder a little bit hotter than you would normally extrude because we will extrude alot of filament in a short time.
-
-```g-code
-M140 S60; set bed temperature
-M104 S205 T0; set nozzle temperature
-```
-
-3. With a caliper or a good ruler, mesure and mark 120mm of filament from the filament runout sensor.
-4. Print the g-code script. It will print 100mm of filament.
-5. Mesure what is left between the runout sensor and the mark you made earlier. Let's say 27mm for this example, you now know that you under-extruded **7mm** (**27mm - (120mm - 100mm) = 7mm**) or **93%** (**100mm - 7mm = 93mm**) of what you wanted to extrude.
-6. Touch the **Configuration** icon, **Configuration**, **Advance Configuration**, **Right Arrow** to go to page two and touch **Steps/mm** and take note of your **E Steps/mm** (**186** in the stock configuration).
-7. Divide your **E Steps/mm** by the percentage you calculated earlier, this will give your new **E Steps/mm**. In this example **186mm/0.93 = 200mm**.
-8. Return to the **Steps/mm** menu, and enter your new **E Steps/mm** value.
-9. Touch the **Back Arrow** until you return to the **Main Configuration** menu then touch the **Right Arrow** to go to page two and touch **Store Settings**.
-
-Once again, [Jeff's 3D corner](https://www.youtube.com/channel/UCfkuUbJ9yJltc0Qi4IDymNA) made [another video](https://www.youtube.com/watch?v=4UCAwPmiBb4) where he goes thru the whole process and need more explanations.
-
-# Adjust Filament loading/unloading on Marlin.
-1. Touch the **Configuration** icon, **Configuration**, **Advance Configuration**, **Right Arrow** to go to page two and touch **Filament**.
-2. Set **Unload mm** to **400** and **Load mm** to **350**.
-3. Touch the **Back Arrow** until you return to the **Main Configuration** menu then touch the **Right Arrow** to go to page two and touch **Store Settings**.
-4. Touch the **Back Arrow** until you return to the **Main Configuration** menu then touch **Change Filament**, and follow the on-screen instructions.
-5. Repeat theses steps, chaning the **Unload mm** / **Load mm** values until you are happy with them.
-
