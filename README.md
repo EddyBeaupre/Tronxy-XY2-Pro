@@ -65,10 +65,14 @@ At this point, the first thing to do is to pour yourself a nice warm cup of coff
 6. Let **PlatformIO** rebuild the IntelliSence Indexes while you're finishing your pot of coffee and start another one. It take a while and **PlatformIO** will be completly unresponsive and behave weirdly until this is done.
 7. Open the file **platformio.ini** and change **default_envs** from **chitu_v5_gpio_init** to **chitu_f103**.
 8. in the **Marlin** subdirectory open **Configuration.h**.
-9. Scroll down and at or around line **44** uncomment **#define XY2_V6_255_NO_TITAN_TMC 1**.
-10. Scroll down and at or around line **60** uncomment **#define TFT_LVGL_UI**.
-11. In the **PlatformIO** side menu expand **Project Tasks** then **Default** then click **Build All**.
-12. If everything goes well, after a few minutes you should see the following in the terminal window:
+9. At or around line **44** uncomment **#define XY2_V6_255_NO_TITAN_TMC 1**.
+10. At or around line **62** uncomment **#define TFT_COLOR_UI**.
+11. At or around line **966** increase **#define EXTRUDE_MAXLENGTH** from **200** to **500**.
+12. At or around line **1690** uncomment **#define SOFT_ENDSTOPS_MENU_ITEM**.
+13. **\*\*Optional\*\*** At or around line **1178** you can adjust your steps by changing the value of **#define DEFAULT_AXIS_STEPS_PER_UNIT**, or leave it default and adjust later via the printer's UI.
+14. **\*\*Optional\*\*** At or around line **1874** you can adjust the number of point automatic bed leveling will check with **#define GRID_MAX_POINTS_X**, or leave it default.
+15. In the **PlatformIO** side menu expand **Project Tasks** then **Default** then click **Build All**.
+16. If everything goes well, after a few minutes you should see the following in the terminal window:
 
 ```
 Checking size .pio\build\chitu_f103\firmware.elf
