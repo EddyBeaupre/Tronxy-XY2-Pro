@@ -142,9 +142,15 @@ M104 S205 T0; set nozzle temperature
 3. With a caliper or a good ruler, mesure and mark 120mm of filament from the filament runout sensor.
 4. Print the g-code script. It will print 100mm of filament.
 5. Mesure what is left between the runout sensor and the mark you made earlier. Let's say 27mm for this example, you now know that you under-extruded **7mm** (**27mm - (120mm - 100mm) = 7mm**) or **93%** (**100mm - 7mm = 93mm**) of what you wanted to extrude.
-6. touch the **Configuration** icon, **Configuration**, **Advance Configuration**, **Right Arrow** to go to page two and touch **Steps/mm** and take note of your **E Steps/mm** (**186** in the stock configuration).
+6. Touch the **Configuration** icon, **Configuration**, **Advance Configuration**, **Right Arrow** to go to page two and touch **Steps/mm** and take note of your **E Steps/mm** (**186** in the stock configuration).
 7. Divide your **E Steps/mm** by the percentage you calculated earlier, this will give your new **E Steps/mm**. In this example **186mm/0.93 = 200mm**.
 8. Return to the **Steps/mm** menu, and enter your new **E Steps/mm** value.
 9. Touch the **Back Arrow** until you return to the **Main Configuration** menu then touch the **Right Arrow** to go to page two and touch **Store Settings**.
 
 # Adjust Filament loading/unloading on Marlin.
+1. Touch the **Configuration** icon, **Configuration**, **Advance Configuration**, **Right Arrow** to go to page two and touch **Filament**.
+2. Set **Unload mm** to **400** and **Load mm** to **350**.
+3. Touch the **Back Arrow** until you return to the **Main Configuration** menu then touch the **Right Arrow** to go to page two and touch **Store Settings**.
+4. Touch the **Back Arrow** until you return to the **Main Configuration** menu then touch **Change Filament**, and follow the on-screen instructions.
+5. Repeat theses steps, chaning the **Unload mm** / **Load mm** values until you are happy with them.
+
