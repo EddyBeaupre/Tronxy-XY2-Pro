@@ -147,6 +147,8 @@ M104 S205 T0; set nozzle temperature
 8. Return to the **Steps/mm** menu, and enter your new **E Steps/mm** value.
 9. Touch the **Back Arrow** until you return to the **Main Configuration** menu then touch the **Right Arrow** to go to page two and touch **Store Settings**.
 
+Once again, [Jeff's 3D corner](https://www.youtube.com/channel/UCfkuUbJ9yJltc0Qi4IDymNA) made [another video](https://www.youtube.com/watch?v=4UCAwPmiBb4) where he goes thru the whole process and need more explanations.
+
 # Adjust Filament loading/unloading on Marlin.
 1. Touch the **Configuration** icon, **Configuration**, **Advance Configuration**, **Right Arrow** to go to page two and touch **Filament**.
 2. Set **Unload mm** to **400** and **Load mm** to **350**.
