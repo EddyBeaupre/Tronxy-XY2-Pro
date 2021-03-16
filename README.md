@@ -10,7 +10,7 @@
   - [Configure Marlin](#configure-marlin)
     - [Adjust Z-Offset](#adjust-z-offset)
     - [Adjust E-Steps](#adjust-e-steps)
-    - [Adjust Filament loading/unloading](#adjust-filament-loading-unloading)
+    - [Adjust Filament loading/unloading](#adjust-filament-loadingunloading)
 - [Restore stock Tronxy firmware and settings](#restore-stock-tronxy-firmware-and-settings)
 
 # Warning
