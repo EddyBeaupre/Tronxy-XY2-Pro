@@ -23,7 +23,7 @@ Well, almost, first, we will back up your current firmware, just in case you reg
 We have two things we need to backup in case we ever want to go back to the stock firmware. The current printer settings and the actual firmware. Let's start by backing up the settings.
 
 ## Settings Backup
-1. Download this [gcode script](https://raw.githubusercontent.com/EddyBeaupre/Tronxy-XY2-Pro/main/gcode/savesettings.gcode) and save it to an SD card
+1. Download this [g-code script](https://raw.githubusercontent.com/EddyBeaupre/Tronxy-XY2-Pro/main/gcode/savesettings.gcode) and save it to an SD card
 2. Print this script and wait at least 30 seconds.
 3. Turn off your printer. You should now have a file call **currentconfig.gcode** on your SD with all your printer's settings.
 
@@ -131,4 +131,18 @@ If you want a more visual description of all the steps, [Jeff's 3D corner](https
 8. Touch the **Back Arrow** until you return to the **Main Configuration** menu then touch the **Right Arrow** to go to page two and touch **Store Settings**.
 
 # Adjust E-Steps on Marlin.
-**TODO**
+1. Download this [g-code script](https://raw.githubusercontent.com/EddyBeaupre/Tronxy-XY2-Pro/main/gcode/Extrude100mm.gcode).
+2. Default values are ok for about any types of PLA, if you're using another kind of material, edit the G-Code and change theses values:
+
+```g-code
+M140 S60; set bed temperature
+M104 S205 T0; set nozzle temperature
+```
+
+3. With a caliper or a good ruler, mesure and mark 120mm of filament from the filament runout sensor.
+4. Print the g-code script. It will print 100mm of filament.
+5. Mesure what is left between the runout sensor and the mark you made earlier. Let's say 27mm for this example, you now know that you under-extruded **7mm** (**27mm - (120mm - 100mm) = 7mm**) or **93%** (**100mm - 7mm = 93mm**) of what you wanted to extrude.
+6. touch the **Configuration** icon, **Configuration**, **Advance Configuration**, **Right Arrow** to go to page two and touch **Steps/mm** and take note of your **E Steps/mm** (**186** in the stock configuration).
+7. Divide your **E Steps/mm** by the percentage you calculated earlier, this will give your new **E Steps/mm**. In this example **186mm/0.93 = 200mm**.
+8. Return to the **Steps/mm** menu, and enter your new **E Steps/mm** value.
+9. Touch the **Back Arrow** until you return to the **Main Configuration** menu then touch the **Right Arrow** to go to page two and touch **Store Settings**.
