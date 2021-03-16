@@ -121,13 +121,14 @@ If you want a more visual description of all the steps, [Jeff's 3D corner](https
 21. Turn the printer back on.
 
 # Adjust Z-Offset on Marlin.
-1. Preheat your bed and extruder to the temperature you normally use for your material. Let it heat for a good 10 minutes so everything settle.
-2. Home your printer, Touch **Tools**, then **Home** and finally **All**.
-3. Press **Back** then press **AutoLevel**, wait for the Auto Level to finish.
-4. Home your printer one last time, touch **Home** then **All**.
-5. Press **Back**, then touch **More**, **G-Code**, **Enter G-Code**.
-6. Disable the software endstop by entering the following G-Code: **M211 S0**
-7. 
+1. Preheat your bed and extruder to the temperature you normally use for your material and go take a coffee or wait at least 10 minutes for everything to settle down.
+2. Home your printer, touch the **Configuration** icon, **Motion** and finally **Auto Home**.
+3. Auto Level your printer, touch the **Configuration** icon, **Motion**, **Bed Leveling** and finally **Level Bed**.
+4. Move the print head to the center of the bed (X=**125**, Y=**125**), touch the **Configuration** icon, **Motion**, **Move Axis**, **Move X**/**Move Y** ...
+5. Touch the **Back Arrow** until you go back to the **Motion** menu, then touch **Soft Endstops** and turn them off. **\*\*WARNING\*\*** Until you re-enable the Soft Endstops, you can crash your head on the bed or push an axis too far, so be careful.
+6. Touch **Move X**, and adjust the Z-Axis very slowly until it barely grip on a piece of paper, take note of the position, that is your Z-Axis offset.
+7. Touch the **Back Arrow** until you go back to the **Main Menu**, then touch **Configuration**, **Probe Z Offset** and enter the Z-Axis offset.
+8. Touch the **Back Arrow** until you return to the **Main Configuration** menu then touch the **Right Arrow** to go to page two and touch **Store Settings**.
 
 # Adjust E-Steps on Marlin.
 **TODO**
