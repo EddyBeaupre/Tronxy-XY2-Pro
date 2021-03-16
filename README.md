@@ -8,6 +8,9 @@
   - [Compile Marlin](#compile-marlin)
   - [Install Marlin](#install-marlin)
   - [Configure Marlin](#configure-marlin)
+    - [Adjust Z-Offset](#adjust-z-offset)
+    - [Adjust E-Steps](#adjust-e-steps)
+    - [Adjust Filament loading/unloading](#adjust-filament-loading-unloading)
 - [Restore stock Tronxy firmware and settings](#restore-stock-tronxy-firmware-and-settings)
 
 # Warning
@@ -114,7 +117,7 @@ chitu_f103     SUCCESS   00:02:11.055
 If you want a more visual description of all the steps, [Jeff's 3D corner](https://www.youtube.com/channel/UCfkuUbJ9yJltc0Qi4IDymNA) made [another video](https://www.youtube.com/watch?v=agOv6DsOz04) where he goes thru the whole process, the procedure is a little different because the video was made a while ago with an older version of PIO but overall the process is the same.
 
 ## Configure Marlin
-### Adjust Z-Offset.
+### Adjust Z-Offset
 1. Preheat your bed and extruder to the temperature you normally use for your material and go take a coffee or wait at least 10 minutes for everything to settle down.
 2. Home your printer, touch the **Configuration** icon, **Motion** and finally **Auto Home**.
 3. Auto Level your printer, touch the **Configuration** icon, **Motion**, **Bed Leveling** and finally **Level Bed**.
@@ -124,7 +127,7 @@ If you want a more visual description of all the steps, [Jeff's 3D corner](https
 7. Touch the **Back Arrow** until you go back to the **Main Menu**, then touch **Configuration**, **Probe Z Offset** and enter the Z-Axis offset.
 8. Touch the **Back Arrow** until you return to the **Main Configuration** menu then touch the **Right Arrow** to go to page two and touch **Store Settings**.
 
-### Adjust E-Steps.
+### Adjust E-Steps
 1. Download this [g-code script](https://raw.githubusercontent.com/EddyBeaupre/Tronxy-XY2-Pro/main/gcode/Extrude100mm.gcode).
 2. Default values are ok for about any types of PLA (**60'c** for the bed, **205'c** for the extruder), if you're using another kind of material, edit the G-Code and change theses values. Keep the Extruder a little bit hotter than you would normally extrude because we will extrude alot of filament in a short time.
 
