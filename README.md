@@ -9,6 +9,7 @@ Use this walkthru at your own risk. No waranty whatsoever that this will work fo
 - A Laptop or Desktop near your printer.
 - At least one 1Kg roll of PLA or wathever material you prefer that you don't mind throwing in the garbage.
 - 24V/50W Heater rod, chances are they installed a cheap 12V/50W Heater rod in your machine and it's going to burn itself after a few prints.
+- A runout detection sensor that has a brass or other strong material insert at the input side, your filament is going to cut right thru the stock all plastic Tronxy sensor after a while.
 - Check every mechanical fastener, make sure all the screw are thight, no slack with the rollers, etc...
 - Check every electrical's connections, Everything with a screw or connector should be secure properly, no loose connection. The AC female plug on mine gave up after about 6 month probably because i didn't check when i got my printer.
 
