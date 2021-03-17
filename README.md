@@ -17,9 +17,11 @@
 - [Restore stock Tronxy firmware and settings](#restore-stock-tronxy-firmware-and-settings)
 
 # Warning
+
 Use this walkthru at your own risk. No waranty whatsoever that this will work for you. This is a work in progress, things may and will change in the futur.
 
 # Pre-requisitions
+
 - This is only for the Tronxy XY-2 Pro, non-titan.
 - A full pot of coffee (or 10 full pots).
 - A good caliper.
@@ -32,21 +34,25 @@ Use this walkthru at your own risk. No waranty whatsoever that this will work fo
 - Check every electrical's connections, Everything with a screw or connector should be secure properly, no loose connection. The AC female plug on mine gave up after about 6 month probably because i didn't check when i got my printer.
 
 # First Steps
+
 Try the stock firmware, if it work for you and you can manage to set it up properly and have constant results, stick with that, don't bother with this walkthru. I got tired of always having to adjust/tweak the printer after about 6 month of ownership. Sometime it was producing the best print i've ever seen, other time it wasn't even able to lay a first layer consistently.
 
 Also, if you're running the stock firmware, forget about Octoprint, auto-leveling is not compatible with usb print, so unless your bed isn't perfectly leveled (good luck with that), it will never work.
 
 # All right, time for backup
+
 Well, almost, first, we will back up your current firmware, just in case you regret your next moves.
 
 We have two things we need to backup in case we ever want to go back to the stock firmware. The current printer settings and the actual firmware. Let's start by backing up the settings.
 
 ## Settings Backup
+
 1. Download this [g-code script](https://raw.githubusercontent.com/EddyBeaupre/Tronxy-XY2-Pro/main/gcode/savesettings.gcode) and save it to an SD card
 2. Print this script and wait at least 30 seconds.
 3. Turn off your printer. You should now have a file call **currentconfig.gcode** on your SD with all your printer's settings.
 
 ## Firmware Backup
+
 1. Confirm your board version is CXY-V6-191017. You will need to open the bottom pannel under the printer and take a look at your motherboard. It should look like this and the version written on the board must match.
 
 ![CXY-V6-191017 Board](https://raw.githubusercontent.com/EddyBeaupre/Tronxy-XY2-Pro/main/images/tronxy%20CXY-V6-191017.png)
@@ -76,6 +82,7 @@ Now that you have everything backed up, make 3 copies of them, send one to your 
 # Marlin
 
 ## Compile Marlin
+
 At this point, the first thing to do is to pour yourself a nice warm cup of coffee and take a break while you consider if you still want to go thru the process or stick with the stock firmware. If you're not sure, take another coffee and make up your mind.
 
 1. [Install Visual Studio Code](https://code.visualstudio.com/download).
@@ -111,6 +118,7 @@ chitu_f103     SUCCESS   00:02:11.055
 ```
 
 ## Install Marlin
+
 1. Open the **.pio\build\chitu_f103\\** folder.
 2. Copy **update.cbd** to the root of an SD card.
 3. Take a deep breath. Maybe another coffee.
@@ -120,7 +128,9 @@ chitu_f103     SUCCESS   00:02:11.055
 If you want a more visual description of all the steps, [Jeff's 3D corner](https://www.youtube.com/channel/UCfkuUbJ9yJltc0Qi4IDymNA) made [another video](https://www.youtube.com/watch?v=agOv6DsOz04) where he goes thru the whole process, the procedure is a little different because the video was made a while ago with an older version of PIO but overall the process is the same.
 
 ## Configure Marlin
+
 ### Adjust Z-Offset
+
 1. Preheat your bed and extruder to the temperature you normally use for your material and go take a coffee or wait at least 10 minutes for everything to settle down.
 2. Home your printer, touch the **Configuration** icon, **Motion** and finally **Auto Home**.
 3. Auto Level your printer, touch the **Configuration** icon, **Motion**, **Bed Leveling** and finally **Level Bed**.
@@ -132,6 +142,7 @@ If you want a more visual description of all the steps, [Jeff's 3D corner](https
 9. Touch the **Back Arrow** until you return to the **Main Configuration** menu then touch the **Right Arrow** to go to page two and touch **Store Settings**.
 
 ### Adjust E-Steps
+
 1. Download this [g-code script](https://raw.githubusercontent.com/EddyBeaupre/Tronxy-XY2-Pro/main/gcode/Extrude100mm.gcode).
 2. Default values are ok for about any types of PLA (**60'c** for the bed, **205'c** for the extruder), if you're using another kind of material, edit the G-Code and change theses values. Keep the Extruder a little bit hotter than you would normally extrude because we will extrude alot of filament in a short time.
 
@@ -150,7 +161,8 @@ M104 S205 T0; set nozzle temperature
 
 Once again, [Jeff's 3D corner](https://www.youtube.com/channel/UCfkuUbJ9yJltc0Qi4IDymNA) made [another video](https://www.youtube.com/watch?v=4UCAwPmiBb4) where he goes thru the whole process and need more explanations.
 
-### Adjust Filament loading/unloading.
+### Adjust Filament loading/unloading
+
 1. Touch the **Configuration** icon, **Configuration**, **Advance Configuration**, **Right Arrow** to go to page two and touch **Filament**.
 2. Set **Unload mm** to **400** and **Load mm** to **350**.
 3. Touch the **Back Arrow** until you return to the **Main Configuration** menu then touch the **Right Arrow** to go to page two and touch **Store Settings**.
@@ -158,9 +170,10 @@ Once again, [Jeff's 3D corner](https://www.youtube.com/channel/UCfkuUbJ9yJltc0Qi
 5. Repeat theses steps, chaning the **Unload mm** / **Load mm** values until you are happy with them.
 
 # Cura Profile.
+
 The stock Cura profile is ok for a starting point, just need to adjust the start and end g-code.
 
-## Start G-Code.
+## Start G-Code
 
 ```g-code
 ; XY-2 Start G-Code
@@ -206,7 +219,8 @@ M140 S0; Set Bed Temperature to 0
 ; XY-2 End Code End
 ```
 
-# Restore stock Tronxy firmware and settings.
+# Restore stock Tronxy firmware and settings
+
 1. Unplug your printer from the AC outlet.
 2. Remove the bottom pannel under the printer.
 3. Remove the **BOOT** jumper and move the **5V** jumper to the **USB** position.
