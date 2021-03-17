@@ -11,6 +11,9 @@
     - [Adjust Z-Offset](#adjust-z-offset)
     - [Adjust E-Steps](#adjust-e-steps)
     - [Adjust Filament loading/unloading](#adjust-filament-loadingunloading)
+- [Cura Profile](#cura-profile)
+  - [Start G-Code](#start-g-code)
+  - [End G-Code](#end-g-code)
 - [Restore stock Tronxy firmware and settings](#restore-stock-tronxy-firmware-and-settings)
 
 # Warning
@@ -153,6 +156,55 @@ Once again, [Jeff's 3D corner](https://www.youtube.com/channel/UCfkuUbJ9yJltc0Qi
 3. Touch the **Back Arrow** until you return to the **Main Configuration** menu then touch the **Right Arrow** to go to page two and touch **Store Settings**.
 4. Touch the **Back Arrow** until you return to the **Main Configuration** menu then touch **Change Filament**, and follow the on-screen instructions.
 5. Repeat theses steps, chaning the **Unload mm** / **Load mm** values until you are happy with them.
+
+# Cura Profile.
+The stock Cura profile is ok for a starting point, just need to adjust the start and end g-code.
+
+## Start G-Code.
+
+```g-code
+; XY-2 Start G-Code
+G21 ; Set Units to mm
+G90 ; Set Positioning to Absolute
+M82 ; Set Extruder to Absolute
+M107 T0 ; All Fans Off
+M140 S{material_bed_temperature_layer_0} ; Heat bed to layer 0 setting
+M190 S{material_bed_temperature_layer_0} ; Wait for bed to heat
+G28 ; Home all axes
+; Uncomment the following line to enable Auto Bed Leveling
+G29 ; Perform Auto Bed Leveling
+;For best results do not run nozzle heater while performing ABL
+M104 S{material_print_temperature_layer_0} T0 ; Heat nozzle to layer 0 setting
+G1 Z5.0 F1200.0; Raise nozzle to prevent scratching of heat bed
+G1 X0 Y0 F3600.0; Move nozzle to Home before heating
+M109 S{material_print_temperature_layer_0} T0 ; Wait for nozzle to heat
+G92 E0 ; Set Extruder position to zero
+; Uncomment the following lines to enable nozzle purge before printing
+G1 Z2.0 F3000 ; Raise Z axis
+G1 X1.1 Y20 Z{layer_height} F3600.0 ; Move to purge line start position
+G1 X1.1 Y230.0 Z{layer_height} F1500.0 E15 ; Draw first purge line
+G1 X1.4 Y230.0 Z{layer_height} F3600.0 ; Move to side
+G1 X1.4 Y20 Z{layer_height} F1500.0 E30 ; Draw second purge line
+G92 E0 ; Reset Extruder
+G1 Z2.0 F3000 ; Move Z Axis up little to prevent scratching of Heat Bed
+G1 X5 Y20 Z{layer_height} F3600.0 ; Move over to finish nozzle wipe
+```
+
+# End G-Code
+
+```g-code
+; XY-2 End G-Code
+G91; set positioning to relative
+M82; set extrusion to absolute
+G1 E{material_anti_ooze_retracted_position} F600; Retract material
+G1 Z10 F1200; Raise printhead 10mm.
+G90; set absolute positioning
+G1 X0 Y{machine_depth} F3600; Move print area to front
+M107; Turn fan Off
+M104 S0; Set Hotend Temperature to 0
+M140 S0; Set Bed Temperature to 0
+; XY-2 End Code End
+```
 
 # Restore stock Tronxy firmware and settings.
 1. Unplug your printer from the AC outlet.
