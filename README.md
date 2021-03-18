@@ -11,6 +11,7 @@
     - [Adjust Z-Offset](#adjust-z-offset)
     - [Adjust E-Steps](#adjust-e-steps)
     - [Adjust Filament loading/unloading](#adjust-filament-loadingunloading)
+    - [Futher Optimization](#futher-optimization)
 - [Cura Profile](#cura-profile)
   - [Start G-Code](#start-g-code)
   - [End G-Code](#end-g-code)
@@ -169,6 +170,10 @@ Once again, [Jeff's 3D corner](https://www.youtube.com/channel/UCfkuUbJ9yJltc0Qi
 4. Touch the **Back Arrow** until you return to the **Main Configuration** menu then touch **Change Filament**, and follow the on-screen instructions.
 5. Repeat theses steps, chaning the **Unload mm** / **Load mm** values until you are happy with them.
 
+### Futher Optimization
+
+See [Teaching Tech 3D Printer Site](https://teachingtechyt.github.io/index.html) for additionnal optimization and calibration trick.
+
 # Cura Profile.
 
 The stock Cura profile is ok for a starting point, just need to adjust the start and end g-code.
@@ -203,7 +208,7 @@ G1 Z2.0 F3000 ; Move Z Axis up little to prevent scratching of Heat Bed
 G1 X5 Y20 Z{layer_height} F3600.0 ; Move over to finish nozzle wipe
 ```
 
-# End G-Code
+## End G-Code
 
 ```g-code
 ; XY-2 End G-Code
