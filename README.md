@@ -214,6 +214,7 @@ G1 X5 Y20 Z{layer_height} F3600.0 ; Move over to finish nozzle wipe
 ; XY-2 End G-Code
 G91; set positioning to relative
 M82; set extrusion to absolute
+G92 E0 ; Reset Extruder
 G1 E{material_anti_ooze_retracted_position} F600; Retract material
 G1 Z10 F1200; Raise printhead 10mm.
 G90; set absolute positioning
