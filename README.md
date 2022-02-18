@@ -21,6 +21,8 @@
 
 Use this walkthru at your own risk. No waranty whatsoever that this will work for you. This is a work in progress, things may and will change in the futur.
 
+It seem that newer Tronxy firmware doesn't read the update.cbd file, thanks to RokHed19 for pointing this out. You must use STM32 Flash loader to upload the firmware file (.pio\build\chitu_f103\firmware.bin) directly via USB. The procedure is the same as restoring stock firmware.
+
 # Pre-requisitions
 
 - This is only for the Tronxy XY-2 Pro, non-titan.
